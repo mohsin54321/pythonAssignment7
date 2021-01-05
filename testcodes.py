@@ -9,26 +9,30 @@ for a in AllVar:
 
 print('Hello, Welcome!')
 
-for b in AllVar:
-    if b == AllVar[1:4]:
-        print('Do you want to guess what is the', AllVar[b] + '?')
+
+b = len(AllVar)
+
+for i in range(b):
+    if AllVar[i] == AllVar[1:4]:
+        print('Do you want to guess what is the', AllVar[i] + '?')
         reply = str(input('Yes or No? 5 chances for each questions. Type right down here\n'))
-        if reply == 'Yes' or reply == 'yes':
+        reply.lower()
+        if reply == 'yes':
             for c in range(1,6):
                 answer = str(input('Chance {} / Your answer: '.format(c)))
                 if answer == EachVarValue[1] or answer == EachVarValue[2] or answer == EachVarValue[3]:
                     print('Correct!')
                 elif c == 5:
-                    print('The answer is:',EachVarValue[b])
+                    print('The answer is:',EachVarValue[i])
                 else:
                     print('Incorrect answer.')
         elif reply == 'No' or reply == 'no':
-            print(AllVar[0:b+1])
+            print(AllVar[0:i+1])
         else:
             reply2 = str(input('Skip all?\n'))
             if reply2 == 'skip all' or reply2 == 'Skip all':
                 print(songdictionary)
                 #Until here the code is working absolutely fine
     else:
-        print(EachVarValue[0:b])
+        print(EachVarValue[0:i])
 print(songdictionary)
